@@ -1,0 +1,23 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            updateTime();
+        });
+
+        function updateTime() {
+            $.ajax({
+                url: 'date.php',
+                success: function(data) {
+                    $('#time').html(data);
+                    setTimeout(updateTime, 1000); // Update every second
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="time"></div>
+</body>
+</html>
